@@ -17,7 +17,7 @@ app.get('/charge', (req, res) => {
 
       let token = response.data.token;
 
-      let currentTime = new Date(Date.now() - 3600000).toISOString();
+      let currentTime = new Date(Date.now() - 3600000 * 10).toISOString();
 
 
       axios.get(`https://api.autopi.io/logbook/storage/read/?device_id=fbb8ceb7-f437-4755-9d27-489e17d628e8&field=obd.batt-soc.value&field_type=long&from_utc=${currentTime}`, {
@@ -25,7 +25,6 @@ app.get('/charge', (req, res) => {
           'Authorization': `bearer ${token}`
         }
       }).then((response) => {
-
         let charge = response.data[response.data.length - 1].value;
         res.json(
           {
