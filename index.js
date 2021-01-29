@@ -1,6 +1,6 @@
-import config from "./config.json";
-import express from 'express';
-import axios from 'axios';
+const config = require("./config.json");
+const express = require('express');
+const axios = require('axios');
 
 
 const app = express();
