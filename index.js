@@ -31,7 +31,8 @@ app.get('/charge', (req, res) => {
             'frames': [
               {
                 'text': `${charge}%`,
-                'icon': 'i39605'
+                'icon': 'i39605',
+                'index': 0
               }
             ]
           }
