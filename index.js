@@ -42,7 +42,7 @@ function getNewestData() {
 
   let oneWeekAgo = new Date(Date.now() - 6.048e+8).toISOString();
 
-  axios.get(`https://api.autopi.io/logbook/storage/read/?device_id=fbb8ceb7-f437-4755-9d27-489e17d628e8&field=obd.batt-soc.value&field_type=long&from_utc=${oneWeekAgo}`, {
+  axios.get(`https://api.autopi.io/logbook/storage/read/?device_id=fbb8ceb7-f437-4755-9d27-489e17d628e8&field=obd.batt-soc.value&field_type=long&from_utc=${oneWeekAgo}&aggregation=none`, {
     headers: {
       'Authorization': `APIToken ${process.env.API_KEY}`
     }
@@ -52,7 +52,7 @@ function getNewestData() {
     console.log(error);
   });
 
-  axios.get(`https://api.autopi.io/logbook/storage/read/?device_id=fbb8ceb7-f437-4755-9d27-489e17d628e8&field=obd.charger-level.value&field_type=long&from_utc=${oneWeekAgo}`, {
+  axios.get(`https://api.autopi.io/logbook/storage/read/?device_id=fbb8ceb7-f437-4755-9d27-489e17d628e8&field=obd.charger-level.value&field_type=long&from_utc=${oneWeekAgo}&aggregation=none`, {
     headers: {
       'Authorization': `APIToken ${process.env.API_KEY}`
     }
