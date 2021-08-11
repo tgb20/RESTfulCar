@@ -38,6 +38,11 @@ app.get('/data', (req, res) => {
   );
 });
 
+app.get('/metrics', (req, res) => {
+  res.set('Content-Type', 'text/plain');
+  res.send(`# HELP battery_soc The current charge percentage.\n# TYPE battery_soc counter\nbattery_soc ${batterySOC}\n\n# HELP charge_type Current charge type.\n# TYPE charge_type gauge\charge_type ${chargeLevel}`);
+});
+
 function getNewestData() {
 
   let oneWeekAgo = new Date(Date.now() - 6.048e+8).toISOString();
